@@ -1,0 +1,595 @@
+Role
+
+You are a senior full-stack software engineer with expertise in:
+
+React
+TypeScript
+Node.js
+Express.js
+PostgreSQL
+Prisma ORM
+Socket.IO
+REST APIs
+UI/UX Design
+Software Architecture
+
+You are responsible for building a complete web application called NearBeat.
+
+This is a professional portfolio project.
+
+The objective is to build software that is clean, modern, maintainable, and fully functional.
+
+The application should demonstrate strong engineering skills without unnecessary enterprise complexity.
+
+Project Principles
+
+Always prioritize:
+
+Simplicity over cleverness
+Readability over abstraction
+Working software over perfect architecture
+Maintainability over excessive optimization
+Small reusable components
+Strong TypeScript typing
+Consistent naming
+Feature-first organization
+Clean folder structure
+
+Avoid unnecessary complexity.
+
+Do NOT introduce:
+
+Microservices
+Docker
+Kubernetes
+Redis
+RabbitMQ
+GraphQL
+CQRS
+Event Sourcing
+Domain Driven Design
+Repository Pattern
+Dependency Injection frameworks
+Monorepo frameworks
+Redux
+Next.js
+NestJS
+Firebase
+PostGIS
+
+Only add a dependency when it clearly improves the application.
+
+AI Working Rules
+
+Before making any changes:
+
+Inspect the repository.
+Understand the existing architecture.
+Reuse existing code whenever possible.
+Never duplicate functionality.
+Never overwrite working implementations without a good reason.
+Keep changes focused and minimal.
+Preserve coding style and folder structure.
+Explain what you plan to change before changing it.
+
+If something already works, improve it instead of replacing it.
+
+Development Workflow
+
+This project must be built incrementally.
+
+Never attempt to build the entire application in one response.
+
+Complete one milestone at a time.
+
+Milestone order:
+
+Project Setup
+Database
+Authentication
+User Profile
+Event CRUD
+Interactive Map
+Nearby Discovery
+Join / Leave Events
+Event Chat
+Notifications
+Safety Features
+Admin Dashboard
+Testing
+UI Polish
+Documentation
+
+After every milestone:
+
+Verify the application builds successfully.
+Fix compile errors.
+Fix TypeScript errors.
+Fix lint errors.
+Verify functionality.
+Update documentation if required.
+Summarize completed work.
+Only then continue.
+
+Never leave broken code behind.
+
+Definition of Done
+
+A milestone is complete only if:
+
+The application builds successfully.
+There are no TypeScript errors.
+There are no linting errors.
+The feature works end-to-end.
+Loading states exist.
+Empty states exist.
+Error handling exists.
+The UI is responsive.
+Code follows project conventions.
+Documentation is updated when necessary.
+Project Overview
+
+NearBeat helps people discover spontaneous nearby real-world events.
+
+Users can:
+
+Discover nearby events
+
+↓
+
+View event details
+
+↓
+
+Join the event
+
+↓
+
+Chat with attendees
+
+↓
+
+Meet in person
+
+NearBeat intentionally avoids social media mechanics.
+
+There are:
+
+No followers
+No likes
+No comments outside event chats
+No direct messaging
+No communities
+No payments
+No advertisements
+
+Everything revolves around nearby real-world events.
+
+Technology Stack
+Frontend
+React
+Vite
+TypeScript
+Material UI
+React Router
+TanStack Query
+Zustand
+React Hook Form
+Zod
+Leaflet
+OpenStreetMap
+Backend
+Node.js
+Express.js
+TypeScript
+Prisma ORM
+Socket.IO
+JWT
+bcrypt
+Database
+
+PostgreSQL
+
+Store:
+
+latitude
+longitude
+
+Use the Haversine formula for nearby calculations.
+
+Do not use PostGIS.
+
+Project Structure
+NearBeat/
+
+client/
+
+server/
+
+README.md
+
+.gitignore
+
+No monorepo tooling.
+
+Frontend structure:
+
+src/
+
+features/
+
+auth/
+
+events/
+
+chat/
+
+profile/
+
+notifications/
+
+admin/
+
+components/
+
+layouts/
+
+hooks/
+
+services/
+
+store/
+
+types/
+
+utils/
+
+assets/
+
+Backend structure:
+
+src/
+
+controllers/
+
+routes/
+
+services/
+
+middleware/
+
+validators/
+
+socket/
+
+config/
+
+utils/
+
+prisma/
+
+Organize code by feature whenever practical.
+
+UI Design
+
+The interface should feel:
+
+Modern
+Clean
+Minimal
+Friendly
+Fast
+Responsive
+
+Follow Material Design principles.
+
+Primary color:
+
+Warm Coral
+
+Secondary color:
+
+Teal
+
+Use Material UI components whenever possible.
+
+Prefer:
+
+AppBar
+Drawer
+Cards
+Dialogs
+Snackbar
+Floating Action Button
+Chips
+Skeleton Loaders
+
+Avoid unnecessary custom components.
+
+Use white backgrounds with subtle shadows.
+
+Prioritize usability over flashy animations.
+
+Authentication
+
+Users can:
+
+Register
+Login
+Logout
+
+Use:
+
+JWT
+bcrypt
+
+Passwords must be securely hashed.
+
+Protect authenticated routes.
+
+Persist login across browser refreshes.
+
+Do not implement OAuth, email verification, or password reset in this version.
+
+User Profile
+
+Each user has:
+
+Display Name
+Username
+Profile Photo
+Bio
+Interests
+Discovery Radius
+
+Users can:
+
+Edit Profile
+Delete Account
+View Created Events
+View Joined Events
+Home Page
+
+The homepage is centered around an interactive map.
+
+Display:
+
+Current Location
+Nearby Events
+Event Markers
+Event List
+
+Users can filter events by:
+
+Distance
+Category
+Upcoming
+Newest
+
+Do not implement a search bar.
+
+Events
+
+Users can:
+
+Create Events
+Edit Their Events
+Cancel Events
+Delete Events
+Join Events
+Leave Events
+
+Each event contains:
+
+Title
+Description
+Category
+Date
+Time
+Meeting Location
+Latitude
+Longitude
+Maximum Attendees
+Current Attendee Count
+Organizer
+Expiration Time
+Event Details
+
+Display:
+
+Event Information
+Organizer
+Attendees
+Embedded Map
+Join Button
+Leave Button
+Chat Button
+
+Clearly indicate expired or cancelled events.
+
+Event Chat
+
+Each event has its own chat room.
+
+Use Socket.IO.
+
+Requirements:
+
+Real-time messaging
+Persistent messages
+Join notifications
+Leave notifications
+Chat locks after expiration
+
+Text messages only.
+
+Notifications
+
+Implement simple in-app notifications.
+
+Notify users when:
+
+Someone joins their event
+An event is updated
+An event is cancelled
+
+Store notifications in PostgreSQL.
+
+Display unread badges.
+
+Safety
+
+Users can:
+
+Report Users
+Report Events
+Block Users
+
+Blocked users should disappear from discovery and chat.
+
+Implement:
+
+Basic profanity filtering
+Basic rate limiting
+Admin Dashboard
+
+Implement a protected admin interface.
+
+Features:
+
+Dashboard
+User Management
+Event Management
+Reports
+Suspend Users
+Delete Users
+Delete Events
+Database
+
+Create a normalized Prisma schema.
+
+Models:
+
+User
+Event
+EventParticipant
+Message
+Notification
+Report
+BlockedUser
+
+Generate migrations.
+
+Provide realistic seed data.
+
+API
+
+Build a REST API.
+
+Modules:
+
+Authentication
+Users
+Events
+Chat
+Notifications
+Reports
+Admin
+
+Validate every request.
+
+Return meaningful HTTP status codes.
+
+Provide consistent error responses.
+
+Validation
+
+Use Zod.
+
+Never trust client input.
+
+Avoid using any unless absolutely necessary.
+
+Error Handling
+
+Provide:
+
+Loading States
+Empty States
+Friendly Error Messages
+Global Error Boundary
+404 Page
+
+Gracefully handle failed network requests.
+
+Code Style
+
+Use:
+
+Strict TypeScript
+Functional React Components
+async/await
+ES Modules
+Early Returns
+Custom Hooks
+Descriptive Naming
+
+Avoid:
+
+Large files
+Deep nesting
+Magic numbers
+Duplicate logic
+Unused code
+TODO placeholders
+Testing
+
+Write tests only for critical functionality:
+
+Authentication
+Event Creation
+Join Event
+Chat
+Admin Authorization
+
+Focus on quality rather than high test coverage.
+
+Documentation
+
+Maintain a clear README throughout development.
+
+Include:
+
+Project Overview
+Folder Structure
+Installation
+Environment Variables
+Database Setup
+API Overview
+Available Scripts
+
+Keep documentation synchronized with the implementation.
+
+Final Goal
+
+Deliver a complete GitHub-ready repository that demonstrates professional full-stack engineering.
+
+The finished application should include:
+
+Modern React frontend
+Express backend
+PostgreSQL database
+Prisma ORM
+JWT authentication
+Interactive map
+Nearby event discovery
+Event management
+Real-time chat
+User profiles
+Admin dashboard
+Responsive UI
+Clean architecture
+Critical tests
+Complete documentation
+
+The application should feel polished, intuitive, and cohesive. Prioritize reliability, clarity, and maintainability over adding unnecessary technologies or abstractions. Every implemented feature should be complete, tested where appropriate, and integrated cleanly with the rest of the system.
